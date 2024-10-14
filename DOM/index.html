@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manupulation</title>
+    <style>
+        .bg-color{
+            background-color: #212121;
+            color:#fff
+        }
+    </style>
+</head>
+<body class="bg-color">
+    <h4 id="h4heading" class="heading">DOM Manupulation, testing</h4>
+    <p class="para">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    </p>
+    <p class="para2">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    </p>
+    <p class="para3">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    </p>
+
+    <input type="password" name="passsword" id="password">
+
+    <ul class="parent">
+        <li class="list">One</li>
+        <li class="list">two</li>
+        <li class="list">three</li>
+    </ul>
+<script>
+    const allList = document.querySelector(".parent");
+    
+    //console.log(allList);
+    //console.log(allList.children[1]);
+    // console.log(allList.firstElementChild);
+    // console.log(allList.lastElementChild);
+
+    for (let index = 0; index < allList.children.length; index++) {
+        allList.children[index].style.color="red"
+        //console.log(allList.children[index]);
+        //console.log(allList.children[index].innerHTML);
+    }
+
+    const liItem = document.querySelector(".list")
+    // console.log(liItem);
+    // console.log(liItem.parentElement)
+    // console.log(liItem.nextElementSibling);
+
+    //console.log(allList.childNodes);
+
+    const h1 = document.createElement('h1')
+   // console.log(h1);
+    //h1.classname = "msg"
+    h1.setAttribute("class","msg msg2")
+    h1.id = "msgg"
+    h1.style.backgroundColor = "green"
+    //h1.innerHTML = "Hi there, My name is pratap@"
+    const addText = document.createTextNode("Optimization text")
+    h1.appendChild(addText)
+    document.body.appendChild(h1)
+    //console.log(h1.getAttribute('id'))
+
+    // add, edit and remove element
+
+    function addElement(name){
+        const addLi = document.createElement('li')
+        addLi.className = "list"
+        addLi.innerHTML = name
+        addLi.style.color="red"
+        // const parentUl = document.querySelector('li')
+        // const parentOfLi = parentUl.parentElement
+        // parentOfLi.appendChild(addLi)
+
+        document.querySelector(".parent").appendChild(addLi)
+    }
+    addElement("Four")
+    addElement("Five")
+
+    //edit
+
+    const firstLi = document.querySelector("li:first-child")
+    firstLi.innerHTML = "Oneee"
+
+    const secondLi = document.querySelector("li:nth-child(2)")
+    secondLi.innerHTML = "Twooo"
+
+    const lastLi = document.querySelector("li:last-child")
+    lastLi.innerHTML = "Fivee"
+    //secondLi.replaceWith(newLi)
+
+    //remove
+
+    const removeFirstLi = document.querySelector("li:first-child")
+    removeFirstLi.remove()
+
+</script>
+</body>
+</html>
